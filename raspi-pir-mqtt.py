@@ -11,8 +11,8 @@ import paho.mqtt.client as mqtt
 # Run with forever
 
 auth = {
-  'username’:”MQTT_USER”,
-  'password’:”MQTT_PASS”
+  'username’:”root”,
+  'password’:”toor”
 }
 
 from gpiozero import MotionSensor
@@ -25,7 +25,7 @@ while True:
 #        print('Motion On')
         publish.single(“CHANNEL/Motion/Switch",
           payload="1",
-          hostname=“MQTT_HOST_IP”,
+          hostname=“localhost”,
           client_id="pi",
           auth=auth,
           port=1883,
@@ -34,7 +34,7 @@ while True:
 #        print('Motion Off')
         publish.single(“CHANNEL/Motion/Switch",
           payload="0",
-          hostname=“MQTT_HOST_IP”,
+          hostname=“localhost”,
           client_id="pi",
           auth=auth,
           port=1883,
